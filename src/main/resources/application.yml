@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: Weather API
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:weatherdb}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:password}
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console.enabled: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+
+api:
+  base-url: /data
+  hourly-rate-limit: 5
+  weather-data-ttl-minutes: 5
+
+openweathermap:
+  api-url: 'https://api.openweathermap.org/data/2.5/weather'
